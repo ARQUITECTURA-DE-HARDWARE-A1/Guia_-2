@@ -1,1 +1,24 @@
+from machine import Pin
+import time
 
+
+pin_boton1 = Pin(13, Pin.IN)
+pin_boton2 = Pin(32, Pin.IN)
+pin_boton3 = Pin(35, Pin.IN)
+pin_boton4 = Pin(34, Pin.IN)
+pin_led1 = Pin(33, Pin.OUT)
+
+print("Hola, ESP32")
+
+while True:
+
+    estado_boton1 = pin_boton1.value()
+    estado_boton2 = pin_boton2.value()
+    estado_boton3 = pin_boton3.value()
+    estado_boton4 = pin_boton4.value()
+
+    todos_pulsados = estado_boton1 and estado_boton2 and estado_boton3 and estado_boton4
+    pin_led1.value(todos_pulsados)
+    time.sleep(0.1)
+
+Link WOKWI: https://wokwi.com/projects/374106981682816001
