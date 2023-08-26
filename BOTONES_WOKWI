@@ -1,0 +1,22 @@
+from machine import Pin 
+from utime import sleep, sleep_ms
+
+
+led=Pin(21,Pin.OUT)
+boton1=Pin(19,Pin.IN, Pin.PULL_UP)
+boton2=Pin(23,Pin.IN, Pin.PULL_UP)
+boton3=Pin(18,Pin.IN, Pin.PULL_UP)
+boton4=Pin(22,Pin.IN, Pin.PULL_UP)
+
+
+while True:
+
+    a=boton1.value()
+    b=boton2.value()
+    c=boton3.value()
+    d=boton4.value()
+    if not(a):
+      led.value(1)
+    if (a):
+      led.value(0)
+
